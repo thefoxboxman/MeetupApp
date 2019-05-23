@@ -1,5 +1,11 @@
 <script>
-
+export let title;
+export let description;
+export let imageSrc;
+export let altText;
+export let venue;
+export let date;
+export let time;
 </script>
 
 <style>
@@ -7,13 +13,13 @@ article {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     background: white;
-    margin: 1rem;
+    margin: 1rem 5rem 1rem 5rem;
   }
 
   header,
   .content,
   footer {
-    padding: 1rem;
+    padding: 2rem;
   }
 
   .image {
@@ -30,7 +36,7 @@ article {
   h1 {
     font-size: 1.25rem;
     margin: 0.5rem 0;
-    font-family: "Roboto Slab", sans-serif;
+    
   }
 
   h1.is-favorite {
@@ -48,24 +54,32 @@ article {
 
   p {
     font-size: 1.25rem;
-    margin: 0;
+				margin: 0;
+				
   }
 
-  div {
-    text-align: right;
+  .content {
+    text-align: left;
   }
 </style>
+
 <!-- Start Html  -->
+
 <article>
 	<header>
-		<h1>Title</h1>
-		<h2>Subtitle</h2>
+		<h1>{title}</h1>
+		<h2>{description}</h2>
 	</header>
+	<div class='image'>
+<img src="{imageSrc}" alt="{altText}">
+	</div>
 	<div class="content">
-<p class=text></p>
+<p class=text>
+	Birthday party at {venue} on the {date} at {time}.
+</p>
 	</div>
 	<footer>
 		<button>Show Details</button>
-			<button>Favourites</button>
+			<button>Favourite U+2764</button>
 	</footer>
 </article>
