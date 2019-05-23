@@ -1,11 +1,11 @@
 <script>
-
-</script>
+	import Header from "./GlobalComps/Header.svelte";
+	</script>
 
 <style>
 
 </style>
-<header>
-	<h1>Meet Up</h1>
-</header>
+
+	<Header />
+
 
