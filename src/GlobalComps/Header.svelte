@@ -3,8 +3,6 @@
 </script>
 
 <style>
-	
-
 
 header{
 	background-color: var(--main-bg-color);	
@@ -167,7 +165,7 @@ nav li{
 
 <!-- Start HTML -->
 <header>
-<h1 class="logo">Meetup</h1>
+<h1 class="logo">Tee-Up</h1>
 <!-- must have id for form css to work as form only looks for an ID. Will not work with class -->
 <input type="checkbox" id="nav-toggle" class="nav-toggle">
 <nav>
