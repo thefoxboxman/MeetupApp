@@ -1,4 +1,6 @@
 <script>
+import Button from "../GlobalComps/Button.svelte";
+
 export let title;
 export let description;
 export let imageSrc;
@@ -10,6 +12,7 @@ export let time;
 
 <style>
 article {
+	width: 300px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     background: white;
@@ -79,7 +82,9 @@ article {
 </p>
 	</div>
 	<footer>
-		<button>Show Details</button>
-			<button>Favourite U+2764</button>
+		<Button type="button" caption="Show Details" />
+<Button mode="outline" type="button" caption="Favourite" />
+<Button href="mailto:john@eaglefox.net" caption="Contact" />
+		
 	</footer>
 </article>

@@ -1,6 +1,8 @@
 <script>
 	import NavHeader from "./GlobalComps/NavHeader.svelte";
 import TeeUpGrid from "./AppHome/TeeUpGrid.svelte";
+import TextInput from "./GlobalComps/TextInput.svelte";
+import Button from "./GlobalComps/Button.svelte";
 
 let date="";
 let time="";
@@ -45,54 +47,81 @@ const newTeeUp = {
 	altText: altText,
 	venue: venue
 };
-
 teeups=[newTeeUp,...teeups]
 }
 
 	</script>
 
 <style>
-#teeups{
-	margin-top: 2rem;
-}
+main {
+    margin-top: 5rem;
+  }
+
+  form {
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+  }
 </style>
 
 <!-- Start App HTML -->
 <!-- Navbar -->
 	<NavHeader />
 
-	<main>
+	<main class="input-form">
 		<form on:submit|preventDefault="{addTeeUp}">
-<div class="form-control">
-<label for="date">Date</label>
-<input type="text" id="date" bind:value={date}>
-</div>
-<div class="form-control">
-<label for="time">Time</label>
-<input type="text" id="time" bind:value={time}>
-</div>
-<div class="form-control">
-<label for="title">Title</label>
-<input type="text" id="title" bind:value={title}>
-</div>
-<div class="form-control">
-<label for="description">Description</label>
-<textarea row=3 id="description"></textarea>
-</div>
-<div class="form-control">
-<label for="imageSrc">Image</label>
-<input type="text" id="imageSrc" bind:value={imageSrc}>
-</div>
-<div class="form-control">
-<label for="altText">Alt Text form Image</label>
-<input type="text" id="altText" bind:value={altText}>
-</div>
-<div class="form-control">
-<label for="venue">Venue</label>
-<input type="text" id="venue" bind:value={venue}>
-</div>
-<button type="submit">Save</button>
+<TextInput
+type="text"
+id="date"
+label="Date"
+value="{date}"
+on:input={event => (date = event.target.value)} />
 
+<TextInput
+type="text"
+id="time"
+label="Time"
+value="{time}"
+on:input={event => (time = event.target.value)} />
+
+<TextInput
+type="text"
+id="title"
+label="Title"
+value="{title}"
+on:input={event => (title = event.target.value)} />
+
+<TextInput
+form-control="textarea"
+rows=3
+id="description"
+label="Description"
+value="{description}"
+on:input={event => (description = event.target.value)} />
+
+<TextInput
+type="text"
+id="imageSrc"
+label="Image Source"
+value="{imageSrc}"
+on:input={event => (imageSrc = event.target.value)} />
+
+<TextInput
+type="text"
+id="altText"
+label="Alt Text for Image"
+value="{altText}"
+on:input={event => (altText = event.target.value)} />
+
+<TextInput
+type="text"
+id="venue"
+label="Venue"
+value="{venue}"
+on:input={event => (venue = event.target.value)} />
+<Button 
+type='submit' 
+caption="Save" />	
 		</form>
 		<TeeUpGrid teeups={teeups} />
 	</main>
