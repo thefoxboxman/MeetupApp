@@ -1,20 +1,68 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');  
 
-* {
-  box-sizing: border-box;
+:root {
+		box-sizing: border-box;
+		--main-text-color: rgba(0,0,0,0.8);
+		--splash-color: rgba(223, 16, 53, 0.99);
+		--main-bg-color: rgba(245, 245, 245, 0.99);
+		--main-nav-color: rgba(0, 62, 199, 0.99);
 }
+
+*, *::before. *::after{
+	box-sizing: border-box;
+}
+
 
 html,
 body {
   position: relative;
   width: 100%;
   height: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+	font-weight: 400;
 }
 
 body {
-  color: #333;
+  
   margin: 0;
   padding: 0;
-  background: #f6f6f6;
+  background: var(--main-bg-color);
 }
+
+/* ROOT STYLE - MAYBE MOVE TO GLOBAL CSS
+:root{
+	--background-color: rgba(46, 13, 67, 0.8);
+}
+
+*, *::before. *::after{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	background: #222;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 400;
+}
+
+.content{
+	height: 100vh;
+	background-image: url(//source.unsplash.com/weekly?water/1600x900);
+	color: white;
+	
+	background-color: rgb(179, 164, 164);
+	background-blend-mode: multiply;
+	background-size: cover;
+	display: grid;
+	place-items: center;
+}
+
+.content h1{
+	font-size: 2rem;
+	color: black;
+	background: grey;
+	border-radius: 5px;
+}
+
+*/

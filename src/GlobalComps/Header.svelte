@@ -3,46 +3,11 @@
 </script>
 
 <style>
-	/* ROOT STYLE - MAYBE MOVE TO GLOBAL CSS
-:root{
-	--background-color: rgba(46, 13, 67, 0.8);
-}
-
-*, *::before. *::after{
-	box-sizing: border-box;
-}
-
-body{
-	margin: 0;
-	background: #222;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 400;
-}
-
-.content{
-	height: 100vh;
-	background-image: url(//source.unsplash.com/weekly?water/1600x900);
-	color: white;
 	
-	background-color: rgb(179, 164, 164);
-	background-blend-mode: multiply;
-	background-size: cover;
-	display: grid;
-	place-items: center;
-}
 
-.content h1{
-	font-size: 2rem;
-	color: black;
-	background: grey;
-	border-radius: 5px;
-}
-
-*/
-/* Navigation Styles Start Here */
 
 header{
-	background-color:  rgba(0, 0, 0, 0.5);;	
+	background-color: var(--main-bg-color);	
 	text-align: center;
 	position: fixed;
 	z-index: 999;
@@ -50,7 +15,9 @@ header{
 }
 
 .logo {
-	color: #ffffff;
+	font-family: 'Rock Salt', cursive;
+	color:var(--splash-color);
+	
 	/* style as neccessary*/
 }
 /* no need to display checkbox. It is still there, we just can't see it. We will create hamburger icon in span element inside lable*/
@@ -63,7 +30,7 @@ header{
 	top: 0;
 	right: 0;
 	margin-right: 1rem;
-	color: #ffffff;
+	color: #000; /*                  ????? this*/
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -73,7 +40,7 @@ header{
 .nav-toggle-label span::before,
 .nav-toggle-label span::after{
 	display: block;
-	background: white;
+	background:var(--main-nav-color);
 	height: 2px;
 	width: 2rem;
 	border-radius: 2px;
@@ -100,7 +67,7 @@ nav{
 	text-align: left;
 	top: 100%; /* this aligns the top of the nav dropdown with the bottom of the header element */
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: var(--main-bg-color);
 	width: 100%;
 	/* add transition to menu openning and closing*/
 	transform: scale(1, 0);
@@ -120,7 +87,7 @@ nav li{
 }
 
 nav a {
-	color: white;
+	color: var(--main-nav-color);
 	text-decoration: none;
 	font-size: 1.2rem;
 	text-transform: uppercase;
@@ -128,7 +95,7 @@ nav a {
 	transition: opacity 150ms ease-in-out;
 }
 nav a:hover{
-color: rgb(138, 118, 118);
+color: var(--main-text-color);
 }
 /* toggle nav off and on */
 /* add transition to menu openning and closing*/
@@ -171,7 +138,7 @@ nav a::before{
 	content: '';
 	display: block;
 	height: 5px;
-	background: white;
+	background: var(--main-nav-color);
 	position: absolute;
 	top: -0.75rem;
 	left: 0;
@@ -217,7 +184,4 @@ nav li{
 </label>
 </header>
 
-<div class="content">
-	<h1>Your Content Here</h1>
-</div>
 	
