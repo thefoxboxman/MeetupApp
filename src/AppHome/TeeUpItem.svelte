@@ -1,18 +1,24 @@
 <script>
-import Button from "../GlobalComps/Button.svelte";
+  import { createEventDispatcher } from "svelte";
+  import Button from "../GlobalComps/Button.svelte";
 
-export let title;
-export let description;
-export let imageSrc;
-export let altText;
-export let venue;
-export let date;
-export let time;
+
+  export let id;
+  export let title;
+  export let description;
+  export let imageSrc;
+  export let altText;
+  export let venue;
+  export let date;
+  export let time;
+  export let isFav;
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
-article {
-	width: 300px;
+  article {
+    width: 300px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     background: white;
@@ -39,7 +45,6 @@ article {
   h1 {
     font-size: 1.25rem;
     margin: 0.5rem 0;
-    
   }
 
   h1.is-favorite {
@@ -57,8 +62,7 @@ article {
 
   p {
     font-size: 1.25rem;
-				margin: 0;
-				
+    margin: 0;
   }
 
   .content {
@@ -69,22 +73,24 @@ article {
 <!-- Start Html  -->
 
 <article>
-	<header>
-		<h1>{title}</h1>
-		<h2>{description}</h2>
-	</header>
-	<div class='image'>
-<img src="{imageSrc}" alt="{altText}">
-	</div>
-	<div class="content">
-<p class=text>
-	Birthday party at {venue} on the {date} at {time}.
-</p>
-	</div>
-	<footer>
-		<Button type="button" caption="Show Details" />
-<Button mode="outline" type="button" caption="Favourite" />
-<Button href="mailto:john@eaglefox.net" caption="Contact" />
-		
-	</footer>
+  <header>
+    <h1>{title}</h1>
+    <h2>{description}</h2>
+  </header>
+  <div class="image">
+    <img src={imageSrc} alt={altText} />
+  </div>
+  <div class="content">
+    <p class="text">Birthday party at {venue} on the {date} at {time}.</p>
+  </div>
+  <footer>
+    <Button type="button" caption="Show Details" />
+    <Button
+      mode="outline"
+      type="button"
+      caption="{isFav ? 'Unfavourite': 'Favourite'}"
+      on:click={() => dispatch('togglefavourite', id)} />
+    <Button href="mailto:john@eaglefox.net" caption="Contact" />
+
+  </footer>
 </article>
