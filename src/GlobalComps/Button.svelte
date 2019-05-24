@@ -3,6 +3,7 @@
   export let caption;
   export let href=null;
   export let mode=null;
+  export let buttonColour=null;
 </script>
 
 <style>
@@ -41,6 +42,7 @@
     box-shadow: none;
     cursor: not-allowed;
   }
+   
 
   .success {
     background: #01a129;
@@ -87,5 +89,5 @@
 {#if href}
   <a {href}>{caption}</a>
 {:else}
-  <button class={mode} {type} on:click>{caption}</button>
+  <button class="{mode} {buttonColour}" {type} on:click>{caption}</button>
 {/if}

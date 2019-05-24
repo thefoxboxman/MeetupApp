@@ -12,6 +12,7 @@
   export let date;
   export let time;
   export let isFav;
+  
 
   const dispatch = createEventDispatcher();
 </script>
@@ -84,9 +85,12 @@
     <p class="text">Birthday party at {venue} on the {date} at {time}.</p>
   </div>
   <footer>
-    <Button type="button" caption="Show Details" />
+    <Button type="button" 
+	caption="Show Details" />
     <Button
       mode="outline"
+		 buttonColour="{isFav ? null : 'success'}";
+	
       type="button"
       caption="{isFav ? 'Unfavourite': 'Favourite'}"
       on:click={() => dispatch('togglefavourite', id)} />
