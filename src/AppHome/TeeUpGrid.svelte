@@ -26,6 +26,7 @@ export let teeups;
 	<section id="teeups">
 	{#each teeups as teeup}
 	<TeeUpItem 
+	id={teeup.id}
 	title={teeup.title}
 	imageSrc={teeup.imageSrc}
 	altText={teeup.altText}
@@ -33,7 +34,7 @@ export let teeups;
 	venue={teeup.venue}
 	date={teeup.date}
 	time={teeup.time}
-	
-	/>
+	isFav={teeup.isFavourite}
+	on:togglefavourite />
 	{/each}
 </section>
