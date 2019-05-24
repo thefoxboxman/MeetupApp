@@ -4,6 +4,7 @@
   import TextInput from "./GlobalComps/TextInput.svelte";
   import Button from "./GlobalComps/Button.svelte";
 
+let id = "";
   let date = "";
   let time = "";
   let title = "";
@@ -11,6 +12,7 @@
   let imageSrc = "";
   let altText = "";
   let venue = "";
+  let isFavourite="";
 
   let teeups = [
     {
@@ -21,7 +23,8 @@
       description: "John's 63rd Birthday Celebration",
       imageSrc: "./images/party.jpg",
       altText: "Party Image ",
-      venue: "Party Central"
+	  venue: "Party Central",
+	  isFavourite: false
     },
     {
       id: "m2",
@@ -31,7 +34,8 @@
       description: "64th Birthday Celebration",
       imageSrc: "./images/mirror_balls.jpg",
       altText: "Mirror Balls ",
-      venue: "Party Central"
+	  venue: "Party Central",
+	  isFavourite: false
     }
   ];
 
@@ -44,9 +48,29 @@
       description: description,
       imageSrc: imageSrc,
       altText: altText,
-      venue: venue
+	  venue: venue,
+	  
     };
     teeups = [newTeeUp, ...teeups];
+  }
+
+  function togglefavourite(event) {
+	  	//capture id passed up by click listner
+		const id =  event.detail;
+		                
+		// using find(), find the teeup matching the id passed in
+	    const updatedTeeup = {...teeups.find(t=>t.id===id)};
+		
+		//toggle isFavourite value in the specific teeup ie true to false or vise versa
+		updatedTeeup.isFavourite = !updatedTeeup.isFavourite;
+		//find the index of the item that needs to updated
+		const teeupIndex = teeups.findIndex(t => t.id === id);
+		//create new array from original so not to mutate original
+		const updatedTeeups = [...teeups];
+		// in updatedTeeups array replace the specific updatedteeup
+		updatedTeeups[teeupIndex]= updatedTeeup;
+		//finally replace orginal teeups with newly updated teeups array
+		teeups = updatedTeeups;
   }
 </script>
 
@@ -113,5 +137,5 @@
       on:input={event => (venue = event.target.value)} />
     <Button type="submit" caption="Save" />
   </form>
-  <TeeUpGrid {teeups} />
+  <TeeUpGrid {teeups} on:togglefavourite="{togglefavourite}" />
 </main>
