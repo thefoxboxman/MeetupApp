@@ -1,12 +1,12 @@
 <script>
-	export let type;
-	export let caption;
-	export let href;
-	export let mode;
+  export let type="button";
+  export let caption;
+  export let href=null;
+  export let mode=null;
 </script>
 
 <style>
- button,
+  button,
   a {
     font: inherit;
     border: 1px solid #cf0056;
@@ -81,12 +81,11 @@
   .outline.success:active {
     background: #c2ffd1;
   }
-
 </style>
 
 <!-- Start HTML -->
 {#if href}
-<a {href}>{caption}</a>
+  <a {href}>{caption}</a>
 {:else}
-<button class={mode} type="{type}">{caption}</button>
+  <button class={mode} {type}>{caption}</button>
 {/if}
