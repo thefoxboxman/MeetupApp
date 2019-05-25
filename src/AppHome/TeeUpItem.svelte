@@ -91,15 +91,17 @@ import Badge from "../GlobalComps/Badge.svelte";
   </div>
   <footer>
     <Button type="button" 
-	caption="Show Details" />
+	 >Show Details </Button>
     <Button
       mode="outline"
 		 buttonColour="{isFav ? null : 'success'}";
 	
       type="button"
-      caption="{isFav ? 'Unfavourite': 'Favourite'}"
-      on:click={() => dispatch('togglefavourite', id)} />
-    <Button href="mailto:john@eaglefox.net" caption="Contact" />
+      
+      on:click={() => dispatch('togglefavourite', id)} >{isFav ? 'Unfavourite': 'Favourite'} </Button>
+
+
+    <Button href="mailto:john@eaglefox.net" >Contact </Button>
 
   </footer>
 </article>

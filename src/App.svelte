@@ -84,7 +84,7 @@ function addTeeUp(event) {
 
 <main>
 <div class="add-button">
-<Button caption="Add New Teeup" on:click="{()=> editMode ='active'}" />
+<Button  on:click="{()=> editMode ='active'}" >Add New Teeup</Button>
 </div>
 
 

@@ -1,6 +1,6 @@
 <script>
   export let type="button";
-  export let caption;
+  //export let caption;
   export let href=null;
   export let mode=null;
   export let buttonColour=null;
@@ -87,7 +87,11 @@
 
 <!-- Start HTML -->
 {#if href}
-  <a {href}>{caption}</a>
+  <a {href}>
+  <slot />
+  </a>
 {:else}
-  <button class="{mode} {buttonColour}" {type} on:click>{caption}</button>
+  <button class="{mode} {buttonColour}" {type} on:click>
+  <slot />
+  </button>
 {/if}

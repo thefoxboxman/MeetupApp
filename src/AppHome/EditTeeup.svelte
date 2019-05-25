@@ -4,15 +4,13 @@
   import TextInput from "../GlobalComps/TextInput.svelte";
   import Button from "../GlobalComps/Button.svelte";
 
-   
-   let date = "";
-   let time = "";
-   let title = "";
-   let description = "";
-   let imageSrc = "";
-   let altText = "";
-   let venue = "";
-  
+  let date = "";
+  let time = "";
+  let title = "";
+  let description = "";
+  let imageSrc = "";
+  let altText = "";
+  let venue = "";
 
   const dispatch = createEventDispatcher();
 
@@ -83,5 +81,5 @@
     label="Venue"
     value={venue}
     on:input={event => (venue = event.target.value)} />
-  <Button type="submit" caption="Save" />
+  <Button type="submit">Save</Button>
 </form>
