@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Button from "../GlobalComps/Button.svelte";
-
+import Badge from "../GlobalComps/Badge.svelte";
 
   export let id;
   export let title;
@@ -74,8 +74,13 @@
 <!-- Start Html  -->
 
 <article>
-  <header>
-    <h1>{title}</h1>
+
+  <header> 
+    <h1>{title} 
+	{#if isFav}
+	<Badge>FAVOURITE</Badge>
+	{/if}
+	</h1> 
     <h2>{description}</h2>
   </header>
   <div class="image">
