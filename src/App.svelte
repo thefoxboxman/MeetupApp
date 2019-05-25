@@ -2,17 +2,11 @@
   import NavHeader from "./GlobalComps/NavHeader.svelte";
   import TeeUpGrid from "./AppHome/TeeUpGrid.svelte";
   import TextInput from "./GlobalComps/TextInput.svelte";
-  import Button from "./GlobalComps/Button.svelte";
+import Button from "./GlobalComps/Button.svelte";
+  import EditTeeup from "./AppHome/EditTeeup.svelte";
+  
+  let editMode="null";
 
-let id = "";
-  let date = "";
-  let time = "";
-  let title = "";
-  let description = "";
-  let imageSrc = "";
-  let altText = "";
-  let venue = "";
-  let isFavourite="";
 
   let teeups = [
     {
@@ -39,19 +33,19 @@ let id = "";
     }
   ];
 
-  function addTeeUp() {
+function addTeeUp(event) {
     const newTeeUp = {
       id: Math.random().toString,
-      date: date,
-      time: time,
-      title: title,
-      description: description,
-      imageSrc: imageSrc,
-      altText: altText,
-	  venue: venue,
-	  
-    };
-    teeups = [newTeeUp, ...teeups];
+      date: event.detail.date,
+      time: event.detail.time,
+      title: event.detail.title,
+      description: event.detail.description,
+      imageSrc: event.detail.imageSrc,
+      altText: event.detail.altText,
+	  venue: event.detail.venue, 
+	};
+	teeups = [newTeeUp, ...teeups];
+	editMode = null;
   }
 
   function togglefavourite(event) {
@@ -78,64 +72,24 @@ let id = "";
   main {
     margin-top: 5rem;
   }
-
-  form {
-    width: 30rem;
-    max-width: 90%;
-    margin: auto;
-  }
+ .add-button{
+	 margin-left: 100px;
+ }
+  
 </style>
 
 <!-- Start App HTML -->
 <!-- Navbar -->
 <NavHeader />
 
-<main class="input-form">
-  <form on:submit|preventDefault={addTeeUp}>
-    <TextInput
-      id="date"
-      label="Date"
-      value={date}
-      on:input={event => (date = event.target.value)} />
+<main>
+<div class="add-button">
+<Button caption="Add New Teeup" on:click="{()=> editMode ='active'}" />
+</div>
 
-    <TextInput
-      id="time"
-      label="Time"
-      value={time}
-      on:input={event => (time = event.target.value)} />
 
-    <TextInput
-      id="title"
-      label="Title"
-      value={title}
-      on:input={event => (title = event.target.value)} />
-
-    <TextInput
-      form-control="textarea"
-      rows="3"
-      id="description"
-      label="Description"
-      value={description}
-      on:input={event => (description = event.target.value)} />
-
-    <TextInput
-      id="imageSrc"
-      label="Image Source"
-      value={imageSrc}
-      on:input={event => (imageSrc = event.target.value)} />
-
-    <TextInput
-      id="altText"
-      label="Alt Text for Image"
-      value={altText}
-      on:input={event => (altText = event.target.value)} />
-
-    <TextInput
-      id="venue"
-      label="Venue"
-      value={venue}
-      on:input={event => (venue = event.target.value)} />
-    <Button type="submit" caption="Save" />
-  </form>
+ {#if editMode === 'active'}
+<EditTeeup on:submit="{addTeeUp}" />
+ {/if}
   <TeeUpGrid {teeups} on:togglefavourite="{togglefavourite}" />
 </main>
