@@ -3,6 +3,7 @@
 
   import TextInput from "../GlobalComps/TextInput.svelte";
   import Button from "../GlobalComps/Button.svelte";
+import Modal from "../GlobalComps/Modal.svelte";
 
   let date = "";
   let time = "";
@@ -29,14 +30,12 @@
 
 <style>
   form {
-    width: 30rem;
-    max-width: 90%;
-    margin: auto;
+    width: 100%;
   }
 </style>
 
 <!-- Start HTML -->
-
+<Modal  title="Add New Teeup" on:cancel>
 <form on:submit|preventDefault={submitForm}>
   <TextInput
     id="date"
@@ -81,5 +80,6 @@
     label="Venue"
     value={venue}
     on:input={event => (venue = event.target.value)} />
-  <Button type="submit">Save</Button>
+  <!-- <Button type="submit">Save</Button> -->
 </form>
+</Modal>

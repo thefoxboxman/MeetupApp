@@ -8,12 +8,7 @@
 </script>
 
 <style>
-  form {
-    width: 30rem;
-    max-width: 80%;
-    margin: auto;
-  }
-
+ 
   input,
   textarea {
     display: block;
@@ -41,8 +36,9 @@
 
   .form-control {
     padding: 0.5rem 0;
-    width: 100%;
-    margin: 0.25rem 0;
+    width: 90%;
+	margin: 0.25rem 0;
+	margin-left: 2rem;
   }
 </style>
 

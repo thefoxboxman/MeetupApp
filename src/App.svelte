@@ -66,6 +66,11 @@ function addTeeUp(event) {
 		//finally replace orginal teeups with newly updated teeups array
 		teeups = updatedTeeups;
   }
+
+function cancelEdit(){
+	editMode = null;
+}
+
 </script>
 
 <style>
@@ -87,9 +92,9 @@ function addTeeUp(event) {
 <Button  on:click="{()=> editMode ='active'}" >Add New Teeup</Button>
 </div>
 
-
+  
  {#if editMode === 'active'}
-<EditTeeup on:submit="{addTeeUp}" />
+<EditTeeup on:submit={addTeeUp} on:cancel={cancelEdit}/>
  {/if}
   <TeeUpGrid {teeups} on:togglefavourite="{togglefavourite}" />
 </main>
