@@ -80,6 +80,6 @@ import Modal from "../GlobalComps/Modal.svelte";
     label="Venue"
     value={venue}
     on:input={event => (venue = event.target.value)} />
-  <!-- <Button type="submit">Save</Button> -->
+   <Button type="submit">Save</Button>
 </form>
 </Modal>
