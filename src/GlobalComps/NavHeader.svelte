@@ -5,15 +5,21 @@
 <style>
 
 header{
+	
 	background-color: var(--main-bg-color);	
 	text-align: center;
 	position: fixed;
 	top: 0;
 	z-index: 999;
-	width:100%;
+	display: grid;
+		grid-template-columns:  2fr 1fr ;
+		width: 100vw;
+		grid-template-areas:
+		" logo nav";
 }
 
 .logo {
+	grid-area: logo;
 	font-family: 'Rock Salt', cursive;
 	color:var(--splash-color);
 	margin: 0;
@@ -27,14 +33,16 @@ header{
 }
 
 .nav-toggle-label{
+	display: flex;
+	align-items: center;
+	
 	position: absolute;
 	top: 0;
 	right: 0;
-	margin-right: 1rem;
+	margin-right: 2rem;
 	color: #000; /*                  ????? this*/
 	height: 100%;
-	display: flex;
-	align-items: center;
+	
 }
 /* create hamburger icon middle line*/
 .nav-toggle-label span,
@@ -115,16 +123,19 @@ transform: scale(1, 1)
 	}
 	header{
 		display: grid;
-		grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+		grid-template-columns: 100px 1fr 2fr 100px;
+		
+		grid-template-areas:
+		" . logo nav .";
 	}
 
 .logo{
-	grid-column: 2 / 3 ;
+	grid-area: logo;
 }
 
 nav{
-	all: unset; /* to remove all previous settings */
-	grid-column: 3/4;
+	all: unset;  /*to remove all previous settings */
+	grid-area: nav;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
