@@ -43,18 +43,22 @@
   }
 
   .content {
-    padding: 1rem;
+	 padding: 1rem;
+	 font-size: 0.8rem;
   }
 
   footer {
     padding: 1rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 735px) {
     .modal {
       width: 40rem;
       left: calc(50% - 20rem);
-    }
+	 }
+	 .content{
+		 font-size: 1rem;
+	 }
   }
 </style>
 

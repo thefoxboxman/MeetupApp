@@ -5,6 +5,12 @@
   export let label;
   export let rows=null;
   export let value;
+  export let valid = true;
+  export let errorMessage = "";
+
+  /* Local state for managing first touch of each input*/
+  let touched=false;
+  
 </script>
 
 <style>
@@ -40,6 +46,15 @@
 	margin: 0.25rem 0;
 	margin-left: 2rem;
   }
+
+  .invalid{
+	  border-color: red;
+	  background: #f0c6c6
+  }
+
+  .error-message{
+	  color: red;
+   }
 </style>
 
 <!-- Start HTML -->
@@ -47,8 +62,11 @@
 <div class="form-control">
   <label for={id}>{label}</label>
   {#if controlType === 'textarea'}
-    <textarea {rows} {id} {value} on:input />
+    <textarea class:invalid="{!valid && touched}" {rows} {id} {value} on:input on:blur={()=>touched=true } />
   {:else}
-    <input {type} {id} {value} on:input />
+    <input class:invalid="{!valid && touched}" {type} {id} {value} on:input on:blur={()=>touched=true} />
+  {/if}
+  {#if errorMessage && !valid && touched}
+<p class="error-message">{errorMessage} </p>
   {/if}
 </div>
