@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import Button from "../GlobalComps/Button.svelte";
-import Badge from "../GlobalComps/Badge.svelte";
+  import Badge from "../GlobalComps/Badge.svelte";
 
   export let id;
   export let title;
@@ -12,24 +12,25 @@ import Badge from "../GlobalComps/Badge.svelte";
   export let date;
   export let time;
   export let isFav;
-  
+  export let isGoing;
 
   const dispatch = createEventDispatcher();
 </script>
 
 <style>
   article {
-    width: 300px;
+    min-width: 300px;
+	 max-width: 400px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     background: white;
-    margin: 1rem 5rem 1rem 5rem;
+    
   }
 
   header,
   .content,
   footer {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .image {
@@ -67,20 +68,37 @@ import Badge from "../GlobalComps/Badge.svelte";
   }
 
   .content {
-    text-align: left;
+	  height: 4rem;
+    
   }
+
+  .fav {
+    font-size: 1.5rem;
+  }
+
+  footer > .button {
+	  margin-right: 30px;
+	  margin-bottom: 10px;
+  }
+
 </style>
 
 <!-- Start Html  -->
 
 <article>
 
-  <header> 
-    <h1>{title} 
-	{#if isFav}
-	<Badge>FAVOURITE</Badge>
-	{/if}
-	</h1> 
+  <header>
+    <h1>
+       {title}
+      <!-- Add isFav Badge -->
+      {#if isFav}
+        <Badge class="fav">❤️</Badge>
+      {/if}
+      <!-- Add isGoing Badge -->
+      {#if isGoing}
+        <Badge class="isgoing">✔️</Badge>
+      {/if}
+    </h1>
     <h2>{description}</h2>
   </header>
   <div class="image">
@@ -90,18 +108,28 @@ import Badge from "../GlobalComps/Badge.svelte";
     <p class="text">Birthday party at {venue} on the {date} at {time}.</p>
   </div>
   <footer>
-    <Button type="button" 
-	 >Show Details </Button>
+    <!-- Favourite Button -->
+    <Button  type="button">Show Details</Button>
     <Button
+	 
       mode="outline"
-		 buttonColour="{isFav ? null : 'success'}";
-	
+      buttonColour={isFav ? null : 'success'}
+      ;
       type="button"
-      
-      on:click={() => dispatch('togglefavourite', id)} >{isFav ? 'Unfavourite': 'Favourite'} </Button>
-
-
-    <Button href="mailto:john@eaglefox.net" >Contact </Button>
+      on:click={() => dispatch('togglefavourite', id)}>
+       {isFav ? 'Unfavourite' : 'Favourite'}
+    </Button>
+    <!-- Going Button -->
+    <Button
+	 
+	 type="button"
+      mode="outline"
+      buttonColour={isGoing ? null : 'success'};
+      on:click={() => dispatch('toggleisgoing', id)}>
+       {isGoing ? 'Going' : 'RSVP'}
+    </Button>
+    <!-- Contact Button -->
+    <Button  href="mailto:test@test.net">Contact</Button>
 
   </footer>
 </article>
