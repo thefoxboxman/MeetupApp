@@ -7,9 +7,15 @@
 </script>
 
 <style>
+button{
+	margin-right:10px;
+	margin-bottom: 10px;
+}
+
   button,
   a {
     font: inherit;
+	 font-size: 0.8rem;
     border: 1px solid #cf0056;
     background: #cf0056;
     padding: 0.5rem 1rem;
@@ -18,6 +24,7 @@
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
     cursor: pointer;
     text-decoration: none;
+	 
   }
 
   button:focus {
