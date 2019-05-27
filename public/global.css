@@ -1,33 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab');
-@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');  
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Slab");
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
 
 :root {
-		box-sizing: border-box;
-		--main-text-color: rgba(0,0,0,0.8);
-		--splash-color: rgba(223, 16, 53, 0.99);
-		--main-bg-color: rgba(245, 245, 245, 0.99);
-		--main-nav-color: rgba(0, 62, 199, 0.99);
+	box-sizing: border-box;
+	--main-text-color: rgba(0, 0, 0, 0.8);
+	--splash-color: rgba(223, 16, 53, 0.99);
+	--main-bg-color: rgba(245, 245, 245, 0.99);
+	--main-nav-color: rgba(0, 62, 199, 0.99);
 }
 
-*, *::before. *::after{
+*,
+*::before *::after {
 	box-sizing: border-box;
 }
 
-
-html{
+html {
 	height: 100%;
-}
-body {
-  position: relative;
-  width: 100%;
-  min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-	font-weight: 400;
-	margin: 0;
-  padding: 0;
-		background: var(--main-bg-color);
-		padding-top: 75px;
 	
 }
-
-
+body {
+	position: absolute;
+	top: 0;
+	max-width: 100vw;
+	min-height: 100vh;
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	background: var(--main-bg-color);
+	padding-top: 85px;
+}
