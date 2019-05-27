@@ -5,17 +5,33 @@ export let teeups;
 </script>
 
 <style>
-  section {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
+ section{
+	 margin: 5px;
+	  width: 100%;
+	display: grid;
+	grid-template-columns: 1fr ;
+	grid-gap: 1rem;
+	}
+
+  @media (min-width: 735px) {
+ section{
+	 margin: 1rem;
+	 grid-template-columns: repeat(2, 1fr) 
+ }
   }
 
-  @media (min-width: 768px) {
-    section {
-      grid-template-columns: repeat(2, 1fr);
-    }
+@media (min-width: 1000px) {
+ section{
+	 
+	 grid-template-columns: repeat(3, 1fr) 
+ }
+  }
+
+  @media (min-width: 1250px) {
+ section{
+	 
+	 grid-template-columns: repeat(4, 1fr) 
+ }
   }
 
 
@@ -23,7 +39,9 @@ export let teeups;
 
 <!-- Start HTML -->
 <!-- Teeups Listing -->
-	<section id="teeups">
+
+
+	<section  class="teeups">
 	{#each teeups as teeup}
 	<TeeUpItem 
 	id={teeup.id}
@@ -35,6 +53,10 @@ export let teeups;
 	date={teeup.date}
 	time={teeup.time}
 	isFav={teeup.isFavourite}
-	on:togglefavourite />
+	on:togglefavourite 
+	isGoing={teeup.isGoing}
+	on:toggleisgoing
+	/>
 	{/each}
 </section>
+
