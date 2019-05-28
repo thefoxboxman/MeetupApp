@@ -1,7 +1,7 @@
-import {writeable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
-/**create writeable teeups store  */
-const teeups = writeable(
+/**create writable teeups store  */
+const teeups = writable(
 	[
     {
       id: "m1",

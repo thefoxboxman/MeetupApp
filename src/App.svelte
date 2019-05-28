@@ -4,7 +4,8 @@
   import TextInput from "./GlobalComps/TextInput.svelte";
 import Button from "./GlobalComps/Button.svelte";
 	import EditTeeup from "./AppHome/EditTeeup.svelte";
-	import teeups from "./Stores/teeups_store.js"
+	import teeups from "./Stores/teeups_store.js";
+	
   
   let editMode="null";
 
