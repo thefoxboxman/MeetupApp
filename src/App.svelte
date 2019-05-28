@@ -3,57 +3,13 @@
   import TeeUpGrid from "./AppHome/TeeUpGrid.svelte";
   import TextInput from "./GlobalComps/TextInput.svelte";
 import Button from "./GlobalComps/Button.svelte";
-  import EditTeeup from "./AppHome/EditTeeup.svelte";
+	import EditTeeup from "./AppHome/EditTeeup.svelte";
+	import teeups from "./Stores/teeups_store.js"
   
   let editMode="null";
 
 
-  let teeups = [
-    {
-      id: "m1",
-      date: "12 Aug 2019",
-      time: "7.30pm",
-      title: "Birthday Party",
-      description: "John's 63rd Birthday Celebration",
-      imageSrc: "./images/party.jpg",
-      altText: "Party Image ",
-	  venue: "Party Central",
-	  isFavourite: false
-    },
-    {
-      id: "m2",
-      date: "14 Jan 2020",
-      time: "7.30pm",
-      title: "Jenelle's Birthday Party",
-      description: "64th Birthday Celebration",
-      imageSrc: "./images/mirror_balls.jpg",
-      altText: "Mirror Balls ",
-	  venue: "Party Central",
-	  isFavourite: false
-    },
-	 {
-      id: "m3",
-      date: "12 Aug 2019",
-      time: "7.30pm",
-      title: "Birthday Party",
-      description: "John's 63rd Birthday Celebration",
-      imageSrc: "./images/party.jpg",
-      altText: "Party Image ",
-	  venue: "Party Central",
-	  isFavourite: false
-    },
-	 {
-      id: "m4",
-      date: "14 Jan 2020",
-      time: "7.30pm",
-      title: "Jenelle's Birthday Party",
-      description: "64th Birthday Celebration",
-      imageSrc: "./images/mirror_balls.jpg",
-      altText: "Mirror Balls ",
-	  venue: "Party Central",
-	  isFavourite: false
-    },
-  ];
+  //let teeups = 
 
 function addTeeUp(event) {
     const newTeeUp = {
