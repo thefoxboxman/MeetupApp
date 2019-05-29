@@ -6,21 +6,10 @@
   import EditTeeup from "./AppHome/EditTeeup.svelte";
   import teeups from "./Stores/teeups_store.js";
 
-	let editMode = "null";
-	
+  let editMode = "null";
 
   function addTeeUp(event) {
     editMode = null;
-  }
-
-  function togglefavourite(event) {
-    const id = event.detail; //capture id passed up by click listner
-    teeups.toggleFavourite(id);//call togglefavourite method on teeups store
-  }
-
-  function toggleisgoing(event) {
-    const id = event.detail; //capture id passed up by click listner
-    teeups.toggleIsGoing(id); //call toggleisgoing method on teeups store
   }
 
   function cancelEdit() {
@@ -79,9 +68,6 @@
     {#if editMode === 'active'}
       <EditTeeup on:submit={addTeeUp} on:cancel={cancelEdit} />
     {/if}
-    <TeeUpGrid
-      teeups={$teeups}
-      on:togglefavourite={togglefavourite}
-      on:toggleisgoing={toggleisgoing} />
+    <TeeUpGrid teeups={$teeups} />
   </main>
 </div>

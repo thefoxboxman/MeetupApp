@@ -1,7 +1,7 @@
 <script>
-  import { createEventDispatcher } from "svelte";
   import Button from "../GlobalComps/Button.svelte";
   import Badge from "../GlobalComps/Badge.svelte";
+  import teeups from "../Stores/teeups_store.js";
 
   export let id;
   export let title;
@@ -14,7 +14,13 @@
   export let isFav = true;
   export let isGoing = true;
 
-  const dispatch = createEventDispatcher();
+  function togglefavourite() {
+    teeups.toggleFavourite(id); //call togglefavourite method on teeups store
+  }
+
+  function toggleisgoing(event) {
+    teeups.toggleIsGoing(id); //call toggleisgoing method on teeups store
+  }
 </script>
 
 <style>
@@ -113,7 +119,7 @@
       type="button"
       mode="outline"
       buttonColour="{isFav ? null : 'success'};"
-      on:click={() => dispatch('togglefavourite', id)}>
+      on:click={togglefavourite}>
        {isFav ? 'Unfavourite' : 'Favourite'}
     </Button>
 
@@ -122,7 +128,7 @@
       type="button"
       mode="outline"
       buttonColour="{isGoing ? null : 'success'};"
-      on:click={() => dispatch('toggleisgoing', id)}>
+      on:click={toggleisgoing}>
        {isGoing ? 'Going' : 'RSVP'}
     </Button>
 
