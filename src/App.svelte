@@ -6,13 +6,12 @@
   import EditTeeup from "./AppHome/EditTeeup.svelte";
   import teeups from "./Stores/teeups_store.js";
 
-  let editMode = "null";
-
-  // let teeups =
-
+	let editMode = "null";
+	
+//data to be forwarded to store
   function addTeeUp(event) {
     const newTeeUpData = {
-      //data to be forwarded to store
+      
       date: event.detail.date,
       time: event.detail.time,
       title: event.detail.title,
@@ -20,20 +19,22 @@
       imageSrc: event.detail.imageSrc,
       altText: event.detail.altText,
       venue: event.detail.venue
-    };
+		};
+		
     // Add new teeup to store by calling addTeeup method and passing newTeeUpData
     teeups.addTeeup(newTeeUpData);
     editMode = null;
   }
 
+//
   function togglefavourite(event) {
-    const id = event.detail;     //capture id passed up by click listner
-		teeups.toggleFavourite(id);
+    const id = event.detail; //capture id passed up by click listner
+    teeups.toggleFavourite(id);
   }
 
   function toggleisgoing(event) {
-    const id = event.detail;      //capture id passed up by click listner
-		teeups.toggleIsGoing(id);
+    const id = event.detail; //capture id passed up by click listner
+    teeups.toggleIsGoing(id);
   }
 
   function cancelEdit() {
@@ -93,7 +94,6 @@
       <EditTeeup on:submit={addTeeUp} on:cancel={cancelEdit} />
     {/if}
     <TeeUpGrid
-    
       teeups={$teeups}
       on:togglefavourite={togglefavourite}
       on:toggleisgoing={toggleisgoing} />
