@@ -11,7 +11,9 @@ const teeups = writable([
 		imageSrc: "./images/party.jpg",
 		altText: "Party Image ",
 		venue: "Party Central",
-		isFavourite: false
+		isFavourite: false,
+		isGoing: false
+
 	},
 	{
 		id: "m2",
@@ -22,7 +24,8 @@ const teeups = writable([
 		imageSrc: "./images/mirror_balls.jpg",
 		altText: "Mirror Balls ",
 		venue: "Party Central",
-		isFavourite: false
+		isFavourite: false,
+		isGoing: false
 	},
 	{
 		id: "m3",
@@ -45,7 +48,8 @@ const teeups = writable([
 		imageSrc: "./images/mirror_balls.jpg",
 		altText: "Mirror Balls ",
 		venue: "Party Central",
-		isFavourite: false
+		isFavourite: false,
+		isGoing: false
 	}
 ]);
 
@@ -55,13 +59,14 @@ const customTeeupStore = {
 		const newTeeup = {
 			...newTeeUpData, //new teeup from App
 			id: Math.random().toString(), //create id in store not in App
-			isFavourite: false //add isFavourite to match store data structure
+			isFavourite: false, //add isFavourite to match store data structure
+			isGoing: false
 		};
 		teeups.update((items) => {
 			return [newTeeup, ...items]; //new teeup first than spead the exisiting items
 		});
 	}, //end addTeeup
-	toggleFavourites: id => {
+	toggleFavourite: id => {
 		teeups.update((items) => {
 			// using find(), find the teeup matching the id passed in
 			const updatedTeeup = { ...items.find((t) => t.id === id) };
@@ -75,8 +80,8 @@ const customTeeupStore = {
 			// in updatedTeeups array replace the specific updatedteeup
 			updatedTeeups[teeupIndex] = updatedTeeup;
 			//finally replace orginal teeups with newly updated teeups array
-			teeups = updatedTeeups;
-			return updatedTeeups;
+			
+		return updatedTeeups;
 		});
 	},
 	toggleIsGoing: (id) => {
