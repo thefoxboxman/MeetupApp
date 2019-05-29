@@ -10,7 +10,7 @@
 	let editMode = "null";
 	let page = 'overview';
 	let pageData = {};
-	let editId = "null";
+	let editId;
 
   function saveTeeUp(event) {
 		editMode = null;
@@ -34,7 +34,7 @@
 
 	function closeDetails(){
 		page = "overview";
-		page.id={};
+		page.id="";
 	}
 </script>
 

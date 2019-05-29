@@ -8,6 +8,7 @@
   import teeups from "../Stores/teeups_store.js";
 
  export let id = null;
+let selectedTeeup;
 
   let date = "";
   let time = "";
@@ -20,7 +21,7 @@
 	//edit existing teeup
 	if (id) {
 	const unsubscribe = teeups.subscribe(items => {
-	const selectedTeeup = items.find(i => i.id === id)
+	 selectedTeeup = items.find(i => i.id === id)
 	date = selectedTeeup.date; 
 		time = selectedTeeup.time;
 		title = selectedTeeup.title;

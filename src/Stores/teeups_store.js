@@ -13,7 +13,6 @@ const teeups = writable([
 		venue: "Party Central",
 		isFavourite: false,
 		isGoing: false
-
 	},
 	{
 		id: "m2",
@@ -71,17 +70,15 @@ const customTeeupStore = {
 	// **** update an existing teeup Method ****
 	updateTeeup: (id, teeupData) => {
 		teeups.update((items) => {
-																const teeupIndex = items.findIndex(
-																	(t) => t.id === id
-																); //find the index of teeup to be updated
-																const updatedTeeup = {
-																	...items[teeupIndex],
-																	teeupData
-																}; //update that teeup with the new data from the passed in teeupData
-																const updatedTeeups = [...items]; //copy the original array into a new array
-																updatedTeeups[teeupIndex] = updatedTeeup; //copy the now updated teeup into the copy of the original array
-																return updatedTeeups; //this will mutate original array to the new updated state
-															});
+			const teeupIndex = items.findIndex((t) => t.id === id); //find the index of teeup to be updated
+			const updatedTeeup = {
+				...items[teeupIndex],
+				...teeupData
+			}; //update that teeup with the new data from the passed in teeupData
+			const updatedTeeups = [...items]; //copy the original array into a new array
+			updatedTeeups[teeupIndex] = updatedTeeup; //copy the now updated teeup into the copy of the original array
+			return updatedTeeups; //this will mutate original array to the new updated state
+		});
 	},
 	//**** toogleFavourite Method ****
 	toggleFavourite: (id) => {
