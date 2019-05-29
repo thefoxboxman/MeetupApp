@@ -11,8 +11,8 @@
   export let venue;
   export let date;
   export let time;
-  export let isFav;
-  export let isGoing;
+  export let isFav = true;
+  export let isGoing = true;
 
   const dispatch = createEventDispatcher();
 </script>
@@ -20,11 +20,10 @@
 <style>
   article {
     min-width: 300px;
-	 max-width: 400px;
+    max-width: 400px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     background: white;
-    
   }
 
   header,
@@ -68,8 +67,7 @@
   }
 
   .content {
-	  height: 4rem;
-    
+    height: 4rem;
   }
 
   .fav {
@@ -77,10 +75,9 @@
   }
 
   footer > .button {
-	  margin-right: 30px;
-	  margin-bottom: 10px;
+    margin-right: 30px;
+    margin-bottom: 10px;
   }
-
 </style>
 
 <!-- Start Html  -->
@@ -108,28 +105,29 @@
     <p class="text">Birthday party at {venue} on the {date} at {time}.</p>
   </div>
   <footer>
+    <!--Show Details Button -->
+    <Button type="button">Show Details</Button>
+
     <!-- Favourite Button -->
-    <Button  type="button">Show Details</Button>
     <Button
-	 
-      mode="outline"
-      buttonColour={isFav ? null : 'success'}
-      ;
       type="button"
+      mode="outline"
+      buttonColour="{isFav ? null : 'success'};"
       on:click={() => dispatch('togglefavourite', id)}>
        {isFav ? 'Unfavourite' : 'Favourite'}
     </Button>
+
     <!-- Going Button -->
     <Button
-	 
-	 type="button"
+      type="button"
       mode="outline"
-      buttonColour={isGoing ? null : 'success'};
+      buttonColour="{isGoing ? null : 'success'};"
       on:click={() => dispatch('toggleisgoing', id)}>
        {isGoing ? 'Going' : 'RSVP'}
     </Button>
+
     <!-- Contact Button -->
-    <Button  href="mailto:test@test.net">Contact</Button>
+    <Button href="mailto:test@test.net">Contact</Button>
 
   </footer>
 </article>

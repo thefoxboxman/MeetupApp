@@ -8,33 +8,19 @@
 
 	let editMode = "null";
 	
-//data to be forwarded to store
+
   function addTeeUp(event) {
-    const newTeeUpData = {
-      
-      date: event.detail.date,
-      time: event.detail.time,
-      title: event.detail.title,
-      description: event.detail.description,
-      imageSrc: event.detail.imageSrc,
-      altText: event.detail.altText,
-      venue: event.detail.venue
-		};
-		
-    // Add new teeup to store by calling addTeeup method and passing newTeeUpData
-    teeups.addTeeup(newTeeUpData);
     editMode = null;
   }
 
-//
   function togglefavourite(event) {
     const id = event.detail; //capture id passed up by click listner
-    teeups.toggleFavourite(id);
+    teeups.toggleFavourite(id);//call togglefavourite method on teeups store
   }
 
   function toggleisgoing(event) {
     const id = event.detail; //capture id passed up by click listner
-    teeups.toggleIsGoing(id);
+    teeups.toggleIsGoing(id); //call toggleisgoing method on teeups store
   }
 
   function cancelEdit() {
