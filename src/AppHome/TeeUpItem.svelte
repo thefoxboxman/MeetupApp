@@ -1,4 +1,5 @@
 <script>
+import {createEventDispatcher} from 'svelte';
   import Button from "../GlobalComps/Button.svelte";
   import Badge from "../GlobalComps/Badge.svelte";
   import teeups from "../Stores/teeups_store.js";
@@ -12,7 +13,9 @@
   export let date;
   export let time;
   export let isFav = true;
-  export let isGoing = true;
+	export let isGoing = true;
+	
+	const dispatch = createEventDispatcher();
 
   function togglefavourite() {
     teeups.toggleFavourite(id); //call togglefavourite method on teeups store
@@ -112,7 +115,7 @@
   </div>
   <footer>
     <!--Show Details Button -->
-    <Button type="button">Show Details</Button>
+    <Button type="button" on:click={() => dispatch('showdetails',id)}>Show Details</Button>
 
     <!-- Favourite Button -->
     <Button

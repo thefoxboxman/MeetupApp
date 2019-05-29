@@ -48,6 +48,7 @@
       date={teeup.date}
       time={teeup.time}
       isFav={teeup.isFavourite}
-      isGoing={teeup.isGoing} />
+      isGoing={teeup.isGoing}
+			on:showdetails />
   {/each}
 </section>

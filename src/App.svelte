@@ -4,9 +4,12 @@
   import TextInput from "./GlobalComps/TextInput.svelte";
   import Button from "./GlobalComps/Button.svelte";
   import EditTeeup from "./AppHome/EditTeeup.svelte";
-  import teeups from "./Stores/teeups_store.js";
+	import teeups from "./Stores/teeups_store.js";
+	import TeeupDetail from "./AppHome/TeeupDetail.svelte";
 
-  let editMode = "null";
+	let editMode = "null";
+	let page = 'overview';
+	let pageData = {};
 
   function addTeeUp(event) {
     editMode = null;
@@ -14,7 +17,17 @@
 
   function cancelEdit() {
     editMode = null;
-  }
+	}
+	
+	function showDetails(event) {
+		page = "detailed";
+		pageData.id = event.detail;
+	}
+
+	function closeDetails(){
+		page = "overview";
+		page.id={};
+	}
 </script>
 
 <style>
@@ -60,6 +73,7 @@
 
   <!-- Start Main Content -->
   <main id="main-content">
+	{#if page === 'overview'}
     <!-- Display Add Teeup Button -->
     <div class="add-button">
       <Button on:click={() => (editMode = 'active')}>Add New Teeup</Button>
@@ -68,6 +82,13 @@
     {#if editMode === 'active'}
       <EditTeeup on:submit={addTeeUp} on:cancel={cancelEdit} />
     {/if}
-    <TeeUpGrid teeups={$teeups} />
+    <TeeUpGrid 
+		teeups={$teeups} 
+		on:showdetails={showDetails} 
+		/>
+
+		{:else}
+<TeeupDetail id={pageData.id} on:close={closeDetails}/>
+		{/if}
   </main>
 </div>
