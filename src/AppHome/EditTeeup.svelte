@@ -7,13 +7,30 @@
   import { isEmpty } from "../Utilities/validation.js";
   import teeups from "../Stores/teeups_store.js";
 
+ export let id = null;
+
   let date = "";
   let time = "";
   let title = "";
   let description = "";
   let imageSrc = "";
   let altText = "";
-  let venue = "";
+	let venue = "";
+	
+	//edit existing teeup
+	if (id) {
+	const unsubscribe = teeups.subscribe(items => {
+	const selectedTeeup = items.find(i => i.id === id)
+	date = selectedTeeup.date; 
+		time = selectedTeeup.time;
+		title = selectedTeeup.title;
+		description = selectedTeeup.description;
+		imageSrc = selectedTeeup.imageSrc;
+		altText = selectedTeeup.altText;
+		venue = selectedTeeup.venue;	
+})
+	unsubscribe();
+}
 
   const dispatch = createEventDispatcher();
 
@@ -31,10 +48,12 @@
     descriptionValid &&
     imageSrcValid &&
     altTextValid &&
-    venueValid;
+		venueValid;
+
+		//submit new teeup
 
   function submitForm() {
-    const newTeeUpData = {
+    const teeupData = {
       date: date,
       time: time,
       title: title,
@@ -43,11 +62,14 @@
       altText: altText,
       venue: venue
     };
-
-    // Add new teeup to store by calling addTeeup method and passing newTeeUpData
-    teeups.addTeeup(newTeeUpData);
+			if(id){
+teeups.updateTeeup(id, teeupData);
+dispatch("submit");
+			} else {
+    teeups.addTeeup(teeupData);
     dispatch("submit");
-  }
+	}
+}
 </script>
 
 <style>

@@ -135,8 +135,8 @@ import {createEventDispatcher} from 'svelte';
        {isGoing ? 'Going' : 'RSVP'}
     </Button>
 
-    <!-- Contact Button -->
-    <Button href="mailto:test@test.net">Contact</Button>
+    <!-- Edit Button -->
+    <Button type="button" mode="outline"  on:click={()=>dispatch('edit',id)} >Edit</Button>
 
   </footer>
 </article>

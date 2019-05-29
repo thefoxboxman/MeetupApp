@@ -10,18 +10,26 @@
 	let editMode = "null";
 	let page = 'overview';
 	let pageData = {};
+	let editId = "null";
 
-  function addTeeUp(event) {
-    editMode = null;
+  function saveTeeUp(event) {
+		editMode = null;
+		editId = null;
   }
 
   function cancelEdit() {
-    editMode = null;
+		editMode = null;
+		editId = null;
 	}
 	
 	function showDetails(event) {
 		page = "detailed";
 		pageData.id = event.detail;
+	}
+
+	function startEdit(event){
+		editMode = 'edit';
+		editId = event.detail;
 	}
 
 	function closeDetails(){
@@ -76,15 +84,19 @@
 	{#if page === 'overview'}
     <!-- Display Add Teeup Button -->
     <div class="add-button">
-      <Button on:click={() => (editMode = 'active')}>Add New Teeup</Button>
+      <Button on:click={() => (editMode = 'edit')}>Add New Teeup</Button>
     </div>
 
-    {#if editMode === 'active'}
-      <EditTeeup on:submit={addTeeUp} on:cancel={cancelEdit} />
+    {#if editMode === 'edit'}
+      <EditTeeup 
+			id={editId}
+			on:submit={saveTeeUp}
+			 on:cancel={cancelEdit}  />
     {/if}
     <TeeUpGrid 
 		teeups={$teeups} 
-		on:showdetails={showDetails} 
+		on:showdetails={showDetails}
+		on:edit={startEdit} 
 		/>
 
 		{:else}
