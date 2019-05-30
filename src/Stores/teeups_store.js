@@ -62,7 +62,7 @@ const customTeeupStore = {
 			isFavourite: false, //add isFavourite to match store data structure
 			isGoing: false
 		};
-		// update method
+		// use built-in update method
 		teeups.update((items) => {
 			return [newTeeup, ...items]; //new teeup first than spead the exisiting items
 		});
@@ -80,6 +80,13 @@ const customTeeupStore = {
 			return updatedTeeups; //this will mutate original array to the new updated state
 		});
 	},
+//delete an exisiting teeup
+deleteTeeup: (id) => {
+	teeups.update((items) =>{
+		return items.filter(i => i.id !==id)
+	})
+},
+
 	//**** toogleFavourite Method ****
 	toggleFavourite: (id) => {
 		teeups.update((items) => {

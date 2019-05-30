@@ -6,8 +6,8 @@
 // *****    CHILD: Button  "Save"     ******
 // *****  DISPATCH: submit with addTeeup   &   submit with updateTeeup   ******
 // *****  PASSES thru EVENTS: nil  ******
-// *****  STORE:  teeup_store   CUSTOM FUNCTIONS: addTeeup(teeupData)    updateTeeup(id, teeupData)   *****
-
+// *****  STORE:  teeup_store      *****
+// *****  CUSTOM FUNCTIONS: addTeeup(teeupData)   updateTeeup(id, teeupData)  deleteTeeup(id) *****
 
 
 <script>
@@ -66,8 +66,18 @@ let selectedTeeup;
     altTextValid &&
 		venueValid;
 
-		//submit new teeup
+//dispatch cancel
+ function cancel() {
+    dispatch("cancel");
+	}
+	
+	//delete teeup
+	function deleteTeeup() {
+teeups.deleteTeeup(id);
+dispatch("submit");
+	}
 
+		//submit new teeup
   function submitForm() {
     const teeupData = {
       date: date,
@@ -156,9 +166,11 @@ dispatch("submit");
       on:input={event => (venue = event.target.value)}
       valid={venueValid}
       errorMessage="Please enter a valid venue" />
-
+<!-- Cancel Button -->
+<Button type="button" mode="outline" on:click={cancel}>Cancel</Button>
     <!-- Save Button to submit form  but only if whole form is valid-->
-
-    <Button type="submit" disabled={!formIsValid}>Save</Button>
+ <Button type="submit" disabled={!formIsValid}>Save</Button>
+ <!-- Delete Button -->
+ <Button type="button"  on:click={deleteTeeup} >Delete</Button>
   </form>
 </Modal>
