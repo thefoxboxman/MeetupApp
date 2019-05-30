@@ -1,3 +1,10 @@
+//  ***** App - provides functionality to store teeups/meetings.
+//  ***** App provides full CRUD access.
+//  ***** Teeups can be marked favourite and/or going. 
+
+
+
+
 <script>
   import NavHeader from "./GlobalComps/NavHeader.svelte";
   import TeeUpGrid from "./AppHome/TeeUpGrid.svelte";

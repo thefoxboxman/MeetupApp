@@ -1,3 +1,10 @@
+// ***** TextInput - faciliates text input dynamically  *****
+// ***** PARENT:  EditTeeup       ******
+// ***** PROPS: controlType, type, id, label, rows, value, errorMessage  ******
+
+
+
+
 <script>
   export let controlType=null;
   export let type = "text"; //default to text as type

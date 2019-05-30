@@ -1,3 +1,9 @@
+// ***** Button - global utility for button functionality using slots. Styled dynamically with css *****
+// ***** PARENT:  Many      Has Children: nil  ******
+// ***** PROPS: nil  ******
+// *****  DISPATCH: (default button action disable)   ******
+// *****  PASSES thru EVENTS: nil  ******
+
 <script>
   export let type="button";
   //export let caption;

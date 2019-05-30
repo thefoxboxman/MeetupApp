@@ -1,3 +1,14 @@
+// ***** TeeUpItem - displays individual teeup items 
+//           each item in grid is displayed by TeeUpItem *****
+// ***** PARENT:  TeeUpGrid      Has Children: Badge  &  Button  ******
+// ***** PROPS: id, title, description, imageSrc, altText, venue, date, time, isFav, isGoing;  ******
+// *****  DISPATCH: on:click(showdetails)  on:click(edit)  ******
+// *****    HAS CHILD: Badge "isFavourite"  & "isGoing"  ******
+// *****    HAS CHILD: Button  "Show Details"  "Favourite/Unfavourite" "RSVP/Going"  "Edit"   ******
+// *****  PASSES EVENTS: nil  ******
+// *****  STORE:  teeup_store   CUSTOM FUNCTIONS: tooglefavourite    toogleisgoing   *****
+
+
 <script>
 import {createEventDispatcher} from 'svelte';
   import Button from "../GlobalComps/Button.svelte";

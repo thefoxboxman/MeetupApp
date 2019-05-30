@@ -1,3 +1,12 @@
+// ***** Modal -  using slots. Default slot for content. Named slot "footer"  *****
+// ***** PARENT:  EditTeeup      Has Children:  "Button"  ******
+// ***** PROPS: title  ******
+// *****    CHILD: Button on:click "Close"   (on:click of backrdop "Close")  ******
+// *****  DISPATCH: closeModel -> "cancel"   ******
+// *****  PASSES thru EVENTS: nil  ******
+
+
+
 <script>
   import { createEventDispatcher } from "svelte";
   import Button from "./Button.svelte";

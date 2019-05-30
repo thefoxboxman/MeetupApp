@@ -1,3 +1,12 @@
+// ***** TeeUpGrid - displays teeup items in responsive grid 
+//           each item in grid is displayed by TeeUpItem *****
+// ***** Parent  App      Has Child: TeeUpItem  ******
+// ***** Props: teeups;  ******
+// *****  Dispatch: nil;    ******
+// *****    Has Child: TeeUpItem  ******
+// *****  Passes events: on:showdetails and on:edit from TeeUpItem  ******
+
+
 <script>
   import TeeUpItem from "./TeeUpItem.svelte";
 

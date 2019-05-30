@@ -1,3 +1,15 @@
+// ***** EditTeeup - opens a modal to allow the Add or Update of single teeup items in store *****
+// ***** PARENT:  App      Has Children: "Text Input"  "Modal"  "Button"  ******
+// ***** PROPS: id  ******
+// *****    CHILD: Modal   ******
+// *****    CHILD: TextInput      ******
+// *****    CHILD: Button  "Save"     ******
+// *****  DISPATCH: submit with addTeeup   &   submit with updateTeeup   ******
+// *****  PASSES thru EVENTS: nil  ******
+// *****  STORE:  teeup_store   CUSTOM FUNCTIONS: addTeeup(teeupData)    updateTeeup(id, teeupData)   *****
+
+
+
 <script>
   import { createEventDispatcher } from "svelte";
 
@@ -18,7 +30,7 @@ let selectedTeeup;
   let altText = "";
 	let venue = "";
 	
-	//edit existing teeup
+	//edit existing teeup get current date for each variable by subscribe to store
 	if (id) {
 	const unsubscribe = teeups.subscribe(items => {
 	 selectedTeeup = items.find(i => i.id === id)
@@ -32,16 +44,19 @@ let selectedTeeup;
 })
 	unsubscribe();
 }
-
-  const dispatch = createEventDispatcher();
-
+//setup dispatcher
+	const dispatch = createEventDispatcher();
+	
+// check validity of indivial input fields
   $: dateValid = !isEmpty(date);
   $: timeValid = !isEmpty(time);
   $: titleValid = !isEmpty(title);
   $: descriptionValid = !isEmpty(description);
   $: imageSrcValid = !isEmpty(imageSrc);
   $: altTextValid = !isEmpty(altText);
-  $: venueValid = !isEmpty(venue);
+	$: venueValid = !isEmpty(venue);
+
+	//check the validity of the form as a whole
   $: formIsValid =
     dateValid &&
     timeValid &&
@@ -62,10 +77,12 @@ let selectedTeeup;
       imageSrc: imageSrc,
       altText: altText,
       venue: venue
-    };
+		};
+		//if has id use update
 			if(id){
 teeups.updateTeeup(id, teeupData);
 dispatch("submit");
+//else use add
 			} else {
     teeups.addTeeup(teeupData);
     dispatch("submit");

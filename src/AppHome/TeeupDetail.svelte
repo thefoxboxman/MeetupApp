@@ -1,3 +1,12 @@
+// ***** TeeupDetail - shows details of selected item. *****
+// ***** PARENT:  App      Has Children:   "Button"  ******
+// ***** PROPS: id  ******
+// *****    CHILD: Button  "Close"  "Contact"   ******
+// *****  DISPATCH: close   ******
+// *****  PASSES thru EVENTS: nil  ******
+// *****  STORE:  teeup_store  (subscribe/unsubscribe) CUSTOM FUNCTIONS: nil   *****
+
+
 <script>
 import { onDestroy, createEventDispatcher } from 'svelte'
 import teeups from '../Stores/teeups_store.js'
