@@ -55,7 +55,7 @@ const teeups = writable([
 const customTeeupStore = {
 	subscribe: teeups.subscribe,
 	// **** Add a new teeup Method ****
-	addTeeup: (teeupDataa) => {
+	addTeeup: (teeupData) => {
 		const newTeeup = {
 			...teeupData, //new teeup from App
 			id: Math.random().toString(), //create id in store not in App
