@@ -1,4 +1,4 @@
-// ***** NAME TeeupFilter  to show filtered selection of teeups *****
+// ***** NAME: TeeupFilter  to show filtered selection of teeups *****
 // ***** PARENT:        Has Children:  ******
 // ***** PROPS:  ******
 // *****    CHILD:    ******
@@ -10,19 +10,23 @@
 <script>
 import { createEventDispatcher } from 'svelte';
 
-
 const dispatch = createEventDispatcher();
+
+let selected_button = 0;
 
 function showAll(){
 dispatch("select", 0);
+selected_button = 0;
 }
 
 function showFavs(){
-dispatch("select", 1);	
+dispatch("select", 1);
+selected_button = 1;	
 }
 
 function showGoing(){
-dispatch("select", 2);	
+dispatch("select", 2);
+selected_button = 2;	
 }
 </script>
 
@@ -36,21 +40,22 @@ dispatch("select", 2);
     font: inherit;
     font-size: 1rem;
     cursor: pointer;
-    border: 1px solid #aaaaaa;
+    border: 2px solid white;
+		border-radius: 5px;
     padding: 0.5rem 1rem;
   }
 
   button:focus {
     outline: none;
   }
-
+/* 
   button:first-of-type {
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px ;
   }
 
   button:last-of-type {
     border-radius: 0 5px 5px 0;
-  }
+  } */
 
   button:hover,
   button:active,
@@ -63,7 +68,13 @@ dispatch("select", 2);
 
 <!-- Start HTML -->
 <div>
-<button type=button on:click={showAll}  >All</button>
-<button type=button on:click={showFavs} >Favourites</button>
-<button type=button on:click={showGoing} >Going</button>
+<button type=button 
+class:active={selected_button === 0}
+on:click={showAll}  >All</button>
+<button type=button
+class:active={selected_button === 1}
+ on:click={showFavs} >Favourites</button>
+<button type=button 
+class:active={selected_button === 2}
+on:click={showGoing} >Going</button>
 </div>
