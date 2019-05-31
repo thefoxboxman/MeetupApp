@@ -15,6 +15,7 @@ import {createEventDispatcher} from 'svelte';
   import Badge from "../GlobalComps/Badge.svelte";
   import teeups from "../Stores/teeups_store.js";
 
+
   export let id;
   export let title;
   export let description;
@@ -64,7 +65,7 @@ import {createEventDispatcher} from 'svelte';
   }
 
   h1 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin: 0.5rem 0;
   }
 
@@ -76,13 +77,13 @@ import {createEventDispatcher} from 'svelte';
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #808080;
     margin: 0.5rem 0;
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     margin: 0;
   }
 
@@ -102,10 +103,10 @@ import {createEventDispatcher} from 'svelte';
 
 <!-- Start Html  -->
 
-<article>
+<article  >
 
   <header>
-    <h1>
+    <h1  >
        {title}
       <!-- Add isFav Badge -->
       {#if isFav}

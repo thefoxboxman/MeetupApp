@@ -3,6 +3,9 @@
 // ***** PROPS: nil ******
 // *****  DISPATCH: nil  ******
 
+<script>
+import { fly, scale } from 'svelte/transition';
+</script>
 
 <style>
   span {
@@ -11,6 +14,6 @@
   }
 </style>
 
-<span>
+<span transition:fly={{x:200, y:-100}}>
   <slot />
 </span>

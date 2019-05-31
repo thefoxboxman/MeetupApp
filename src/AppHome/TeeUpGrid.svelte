@@ -14,6 +14,8 @@ grid is displayed by TeeUpItem *****
   import TeeUpItem from "./TeeUpItem.svelte";
   import TeeupFilter from "./TeeupFilter.svelte";
   import Button from "../GlobalComps/Button.svelte";
+import { fly, scale } from 'svelte/transition';
+import { flip } from 'svelte/animate';
 
   export let teeups;
 
@@ -99,8 +101,9 @@ grid is displayed by TeeUpItem *****
 </div>
 
 <section class="teeups">
-  {#each filteredTeeups as teeup}
-    <TeeUpItem
+  {#each filteredTeeups as teeup (teeup.id) }
+    <div transition:scale animate:flip={{duration:300}} >
+		<TeeUpItem
       id={teeup.id}
       title={teeup.title}
       imageSrc={teeup.imageSrc}
@@ -113,5 +116,6 @@ grid is displayed by TeeUpItem *****
       isGoing={teeup.isGoing}
       on:showdetails
       on:edit />
+			</div>
   {/each}
 </section>
