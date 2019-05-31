@@ -67,13 +67,6 @@
     grid-area: main;
   }
 
-  /* Add Teeup Button	*/
-  .add-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px 0;
-  }
 </style>
 
 <!-- Start App HTML -->
@@ -89,10 +82,6 @@
   <!-- Start Main Content -->
   <main id="main-content">
 	{#if page === 'overview'}
-    <!-- Display Add Teeup Button -->
-    <div class="add-button">
-      <Button on:click={() => (editMode = 'edit')}>Add New Teeup</Button>
-    </div>
 
     {#if editMode === 'edit'}
       <EditTeeup 
@@ -107,7 +96,9 @@
 		/>
 
 		{:else}
-<TeeupDetail id={pageData.id} on:close={closeDetails}/>
+<TeeupDetail id={pageData.id}
+on:edit={editMode= 'edit'}
+ on:close={closeDetails}/>
 		{/if}
   </main>
 </div>
