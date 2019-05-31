@@ -102,7 +102,7 @@ import { flip } from 'svelte/animate';
 
 <section class="teeups">
   {#each filteredTeeups as teeup (teeup.id) }
-    <div transition:scale animate:flip={{duration:300}} >
+    <div transition:scale animate:flip={{duration:400}} >
 		<TeeUpItem
       id={teeup.id}
       title={teeup.title}
