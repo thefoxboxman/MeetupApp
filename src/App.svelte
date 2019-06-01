@@ -19,6 +19,24 @@
 	let pageData = {};
 	let editId;
 
+fetch ("https://teeupapp-21db3.firebaseio.com/teeups.json")
+.then(res => {
+	if (!res.ok){
+		throw new Error("Fetching fucked up!");
+	}
+	return res.json();
+})
+.then(data => {
+	const loadedTeeups =[];
+	for (const key in data){
+		loadedTeeups.push({
+			...data[key],
+			id: key
+		});
+	}
+	teeups.setTeeups(loadedTeeups);
+})
+
   function saveTeeUp(event) {
 		editMode = null;
 		editId = null;

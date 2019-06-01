@@ -1,66 +1,21 @@
 import { writable } from "svelte/store";
 
 /**create writable teeups store  */
-const teeups = writable([
-	{
-		id: "m1",
-		date: "12 Aug 2019",
-		time: "7.30pm",
-		title: "Birthday Party",
-		description: "John's 63rd Birthday Celebration",
-		imageSrc: "./images/party.jpg",
-		altText: "Party Image ",
-		venue: "Party Central",
-		isFavourite: false,
-		isGoing: false
-	},
-	{
-		id: "m2",
-		date: "14 Jan 2020",
-		time: "7.30pm",
-		title: "Jenelle's Birthday Party",
-		description: "64th Birthday Celebration",
-		imageSrc: "./images/mirror_balls.jpg",
-		altText: "Mirror Balls ",
-		venue: "Party Central",
-		isFavourite: false,
-		isGoing: false
-	},
-	{
-		id: "m3",
-		date: "12 Aug 2019",
-		time: "7.30pm",
-		title: "Birthday Party",
-		description: "John's 63rd Birthday Celebration",
-		imageSrc: "./images/party.jpg",
-		altText: "Party Image ",
-		venue: "Party Central",
-		isFavourite: false,
-		isGoing: false
-	},
-	{
-		id: "m4",
-		date: "14 Jan 2020",
-		time: "7.30pm",
-		title: "Jenelle's Birthday Party",
-		description: "64th Birthday Celebration",
-		imageSrc: "./images/mirror_balls.jpg",
-		altText: "Mirror Balls ",
-		venue: "Party Central",
-		isFavourite: false,
-		isGoing: false
-	}
-]);
+const teeups = writable([]);
 
 const customTeeupStore = {
 	subscribe: teeups.subscribe,
+	// ***** reset local store to empty array method ****
+	setTeeups: (teeupArray) => {
+		teeups.set(teeupArray);
+	},
 	// **** Add a new teeup Method ****
 	addTeeup: (teeupData) => {
 		const newTeeup = {
 			...teeupData, //new teeup from App
-			id: Math.random().toString(), //create id in store not in App
-			isFavourite: false, //add isFavourite to match store data structure
-			isGoing: false
+			//id: Math.random().toString(), //create id in store not in App
+			//isFavourite: false, //add isFavourite to match store data structure
+			//isGoing: false
 		};
 		// use built-in update method
 		teeups.update((items) => {

@@ -94,6 +94,23 @@ teeups.updateTeeup(id, teeupData);
 dispatch("submit");
 //else use add
 			} else {
+		fetch("https://teeupapp-21db3.firebaseio.com/teeups.json", {
+			method: 'POST',
+			body: JSON.stringify({...teeupData, isFavourite: false, isGoing: false}),
+			headers:{'Content-Type': 'application/json'}
+		})
+		.then(res => {
+			if (!res.ok){
+				throw new Error('An error occurred, please try again')
+			}
+			return res.json();
+		})
+		.then(data => {
+			teeups.addTeeup({...teeupData, isFavorite: false, isGoing: false, id: data.name});
+		})
+		.catch(err => {
+			console.log(err)
+		});		
     teeups.addTeeup(teeupData);
     dispatch("submit");
 	}
