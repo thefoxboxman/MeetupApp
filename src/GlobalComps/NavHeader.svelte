@@ -14,7 +14,7 @@ header{
 	top: 0;
 	z-index: 999;
 	display: grid;
-		grid-template-columns:  2fr 1fr ;
+		grid-template-columns:  5fr 1fr ;
 		width: 100vw;
 		grid-template-areas:
 		" logo nav";
@@ -181,15 +181,15 @@ nav li{
 
 <!-- Start HTML -->
 <header>
-<h1 class="logo">Tee-Up</h1>
+<h2 class="logo">Tee-Up</h2>
 <!-- must have id for form css to work as form only looks for an ID. Will not work with class -->
 <input type="checkbox" id="nav-toggle" class="nav-toggle">
 <nav>
 	<ul>
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Services</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
 	</ul>
 </nav>
 

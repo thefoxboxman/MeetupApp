@@ -14,10 +14,6 @@
 </script>
 
 <style>
-button{
-	margin-right:10px;
-	margin-bottom: 10px;
-}
 
   button,
   a {

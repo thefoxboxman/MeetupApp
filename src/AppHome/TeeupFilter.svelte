@@ -38,7 +38,7 @@ selected_button = 2;
   button {
     background: #aaaaaa;
     font: inherit;
-    font-size: 1rem;
+    font-size: 0.8rem;
     cursor: pointer;
     border: 2px solid white;
 		border-radius: 5px;

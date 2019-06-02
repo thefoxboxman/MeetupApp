@@ -48,15 +48,12 @@
         align-items: center;
         justify-content: space-between;
         margin: 1rem;
+				position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 60px;
     }
 
-    /* Add Teeup Button	*/
-    .add-button {
-        /* display: flex;
-        align-items: center;
-        justify-content: space-between; */
-        margin: 1rem 0;
-    }
+    
 
     .no-meetups {
         margin: 5rem;
