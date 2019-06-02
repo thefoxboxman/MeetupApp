@@ -71,6 +71,7 @@
 </script>
 
 <style>
+    /* ************************  STYLES  *************************** */
     /* Grid layout for Appl */
     #grid-container {
         display: grid;
@@ -93,7 +94,7 @@
     }
 </style>
 
-<!-- Start App HTML -->
+<!-- ********************** Start App HTML ********************** -->
 
 <!-- Grid Container for Whole App -->
 <div id="grid-conatiner">
@@ -114,7 +115,7 @@
                     on:cancel={cancelEdit} />
             {/if}
             <!--end edit -->
-            <!-- Display Grid -->
+            <!-- Display Teeups  -->
             <!-- if is loading show spinner -->
             {#if isLoading}
                 <LoadingSpinner />
