@@ -30,11 +30,41 @@ import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
   function togglefavourite() {
-    teeups.toggleFavourite(id); //call togglefavourite method on teeups store
+		fetch(`https://teeupapp-21db3.firebaseio.com/teeups/${id}.json`, {
+                method: 'PATCH',
+                body: JSON.stringify({isFavourite: !isFav}),
+                headers: { 'Content-Type': 'application/json' },
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('An error occurred, please try again')
+                    }
+										//update local store
+									teeups.toggleFavourite(id); //call togglefavourite method on teeups store	
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+    
   }
 
   function toggleisgoing(event) {
-    teeups.toggleIsGoing(id); //call toggleisgoing method on teeups store
+		fetch(`https://teeupapp-21db3.firebaseio.com/teeups/${id}.json`, {
+                method: 'PATCH',
+                body: JSON.stringify({isGoing: !isGoing}),
+                headers: { 'Content-Type': 'application/json' },
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('An error occurred, please try again')
+                    }
+										//update local store
+									teeups.toggleIsGoing(id); //call toggleisgoing method on teeups store
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+    
   }
 </script>
 

@@ -26,7 +26,7 @@
             return res.json()
         })
         .then(data => {
-            const loadedTeeups = []
+            const loadedTeeups = [] //local variable to accept remote data
             for (const key in data) {
                 loadedTeeups.push({
                     ...data[key],
@@ -36,7 +36,7 @@
             setTimeout(() => {
                 //test line
                 isLoading = false //test line
-                teeups.setTeeups(loadedTeeups) //this line stays
+                teeups.setTeeups(loadedTeeups.reverse()) //reverse the order that arrives from firebase database
             }, 1000) //test line
         })
         .catch(err => {
