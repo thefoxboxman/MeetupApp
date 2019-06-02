@@ -1,10 +1,4 @@
 <style>
-    .loading {
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-        margin: 10rem;
-    }
     /* Loading Spinner source  from loading.io/css */
     .lds-ring {
         display: inline-block;
@@ -43,12 +37,10 @@
     }
 </style>
 
-<div class="loading">
-    <!-- loading spinner html -->
-    <div class="lds-ring">
-        <div />
-        <div />
-        <div />
-        <div />
-    </div>
+<!-- loading spinner html -->
+<div class="lds-ring">
+    <div />
+    <div />
+    <div />
+    <div />
 </div>
